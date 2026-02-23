@@ -28,7 +28,7 @@ header {
   background: #26263a;
 }
 
-button {
+button, .button {
   width: 100%;
   padding: 14px;
   margin-top: 12px;
@@ -40,7 +40,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover, .button:hover {
   background: #3d3d5c;
 }
 
