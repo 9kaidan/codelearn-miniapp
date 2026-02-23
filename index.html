@@ -1,60 +1,26 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(180deg, #0f0f14, #151520);
-  color: white;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeLearn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-#app {
-  padding: 20px;
-}
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-header {
-  text-align: center;
-  margin-bottom: 25px;
-}
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-.card {
-  background: #1e1e2a;
-  padding: 18px;
-  border-radius: 18px;
-  margin-bottom: 15px;
-  transition: 0.2s;
-  cursor: pointer;
-}
+<div id="app">
+  <header>
+    <h1>🚀 CodeLearn</h1>
+  </header>
 
-.card:hover {
-  transform: translateY(-3px);
-  background: #26263a;
-}
+  <main id="content"></main>
+</div>
 
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-  border-radius: 12px;
-  border: none;
-  font-size: 15px;
-  background: #2f2f45;
-  color: white;
-  cursor: pointer;
-}
+<script type="module" src="js/app.js"></script>
 
-button:hover {
-  background: #3d3d5c;
-}
-
-.progress-bar {
-  height: 8px;
-  background: #2a2a3a;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.progress-fill {
-  height: 100%;
-  background: #5a7dff;
-  width: 0%;
-  border-radius: 5px;
-  transition: 0.3s;
-}
+</body>
+</html>
