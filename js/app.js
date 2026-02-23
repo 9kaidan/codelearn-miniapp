@@ -1,8 +1,3 @@
-import { showHome } from "./ui.js";
-
-const tg = window.Telegram.WebApp;
-
-tg.expand();
-tg.ready();
-
-showHome();
+async function sendDataToBot(data) {
+    Telegram.WebApp.sendData(JSON.stringify(data));
+}
