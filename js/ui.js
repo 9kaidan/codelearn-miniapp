@@ -1,20 +1,13 @@
-// ui.js
-import { PYTHON_Q } from "../data/python_questions.js"; // аналогично остальные языки
-
-const LANGUAGES = {
-  Python: { q: PYTHON_Q },
-  // C++, C#, Dart, SQL — аналогично
-};
-
-let user = {
-  language: null,
-  quiz_index: 0,
-  score: {},
-  read_articles: [],
-};
+import { getQuizQuestion } from "./quiz.js"; // Заглушка для викторины
+import { DATA } from "./data.js";           // Заглушка для вопросов и статей
 
 const app = document.getElementById("content");
 
+let user = {
+  language: null,
+};
+
+// Главная страница
 export function showHome() {
   app.innerHTML = "";
   const btn = document.createElement("button");
@@ -23,9 +16,11 @@ export function showHome() {
   app.appendChild(btn);
 }
 
+// Выбор языка
 function showLanguageMenu() {
   app.innerHTML = "";
-  Object.keys(LANGUAGES).forEach((lang) => {
+  const languages = ["Python", "C++", "C#", "Dart", "SQL"];
+  languages.forEach((lang) => {
     const btn = document.createElement("button");
     btn.textContent = lang;
     btn.onclick = () => chooseLanguage(lang);
@@ -33,12 +28,13 @@ function showLanguageMenu() {
   });
 }
 
+// Выбор языка
 function chooseLanguage(lang) {
   user.language = lang;
-  user.quiz_index = 0;
   showSectionMenu();
 }
 
+// Меню разделов
 function showSectionMenu() {
   app.innerHTML = "";
 
@@ -56,25 +52,43 @@ function showSectionMenu() {
     btn.onclick = sec.action;
     app.appendChild(btn);
   });
+
+  const backBtn = document.createElement("button");
+  backBtn.textContent = "⬅️ Назад к выбору языка";
+  backBtn.onclick = showLanguageMenu;
+  app.appendChild(backBtn);
 }
 
-// Примеры функций
+// Разделы (пока заглушки)
 function showTheory() {
-  app.innerHTML = "<p>Список статей пока заглушка</p>";
+  app.innerHTML = `<p>📘 Теория по ${user.language} — пока заглушка</p>`;
+  addBackToSection();
 }
 
 function showPractice() {
-  app.innerHTML = "<p>Практические задания пока заглушка</p>";
+  app.innerHTML = `<p>💻 Практика по ${user.language} — пока заглушка</p>`;
+  addBackToSection();
 }
 
 function showQuiz() {
-  app.innerHTML = "<p>Викторина пока заглушка</p>";
+  app.innerHTML = `<p>🧠 Викторина по ${user.language} — пока заглушка</p>`;
+  addBackToSection();
 }
 
 function showChallenge() {
-  app.innerHTML = "<p>Челлендж пока заглушка</p>";
+  app.innerHTML = `<p>🔥 Челлендж по ${user.language} — пока заглушка</p>`;
+  addBackToSection();
 }
 
 function showProgress() {
-  app.innerHTML = "<p>Прогресс пользователя пока заглушка</p>";
+  app.innerHTML = `<p>📊 Прогресс по ${user.language} — пока заглушка</p>`;
+  addBackToSection();
+}
+
+// Кнопка "Назад в меню разделов"
+function addBackToSection() {
+  const btn = document.createElement("button");
+  btn.textContent = "⬅️ Назад в разделы";
+  btn.onclick = showSectionMenu;
+  app.appendChild(btn);
 }
