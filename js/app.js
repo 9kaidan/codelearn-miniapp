@@ -1,8 +1,10 @@
 import { showHome } from "./ui.js";
 
-// Инициализация Telegram WebApp
 const tg = window.Telegram.WebApp;
+
+// Расширяем окно Telegram WebApp (если нужно)
 tg.expand();
 tg.ready();
 
+// Показываем стартовое меню
 showHome();
