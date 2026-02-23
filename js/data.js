@@ -1,7 +1,28 @@
-export const languages = [
-  { name: "Python", icon: "🐍" },
-  { name: "C++", icon: "💻" },
-  { name: "C#", icon: "🎯" },
-  { name: "Dart", icon: "🏹" },
-  { name: "SQL", icon: "🗄️" }
-];
+// data.js
+export const DATA = {
+  Python: {
+    theory: [],
+    practice: [],
+    quiz: []
+  },
+  "C++": {
+    theory: [],
+    practice: [],
+    quiz: []
+  },
+  "C#": {
+    theory: [],
+    practice: [],
+    quiz: []
+  },
+  Dart: {
+    theory: [],
+    practice: [],
+    quiz: []
+  },
+  SQL: {
+    theory: [],
+    practice: [],
+    quiz: []
+  }
+};
