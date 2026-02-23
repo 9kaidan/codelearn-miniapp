@@ -1,34 +1,60 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f14;
-  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #0f0f14, #151520);
+  color: white;
+}
+
+#app {
+  padding: 20px;
 }
 
 header {
   text-align: center;
-  padding: 20px;
-  background: #1b1b25;
+  margin-bottom: 25px;
 }
 
-h1 {
-  margin: 0;
+.card {
+  background: #1e1e2a;
+  padding: 18px;
+  border-radius: 18px;
+  margin-bottom: 15px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  background: #26263a;
 }
 
 button {
-  display: block;
-  width: 90%;
-  margin: 10px auto;
-  padding: 15px;
-  background: #2b2b3c;
-  border: none;
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
   border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  background: #2f2f45;
   color: white;
-  font-size: 16px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 button:hover {
-  background: #3a3a52;
+  background: #3d3d5c;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #2a2a3a;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #5a7dff;
+  width: 0%;
+  border-radius: 5px;
+  transition: 0.3s;
 }
