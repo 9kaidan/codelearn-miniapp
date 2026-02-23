@@ -1,3 +1,4 @@
+// js/quiz.js
 export function getQuizQuestion(lang) {
   return {
     question: `Вопрос по ${lang} (заглушка)`,
