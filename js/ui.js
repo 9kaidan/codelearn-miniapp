@@ -1,50 +1,80 @@
-const content = document.getElementById("content");
+// ui.js
+import { PYTHON_Q } from "../data/python_questions.js"; // аналогично остальные языки
 
-function showMainMenu() {
-    content.innerHTML = `
-        <button onclick="showLanguages()">Выбрать язык</button>
-        <button onclick="showProgress()">Прогресс</button>
-        <button onclick="closeApp()">Закрыть</button>
-    `;
+const LANGUAGES = {
+  Python: { q: PYTHON_Q },
+  // C++, C#, Dart, SQL — аналогично
+};
+
+let user = {
+  language: null,
+  quiz_index: 0,
+  score: {},
+  read_articles: [],
+};
+
+const app = document.getElementById("content");
+
+export function showHome() {
+  app.innerHTML = "";
+  const btn = document.createElement("button");
+  btn.textContent = "🚀 Начать обучение";
+  btn.onclick = showLanguageMenu;
+  app.appendChild(btn);
 }
 
-function showLanguages() {
-    content.innerHTML = `
-        <button onclick="selectLang('Python')">Python</button>
-        <button onclick="selectLang('C++')">C++</button>
-        <button onclick="selectLang('C#')">C#</button>
-        <button onclick="selectLang('Dart')">Dart</button>
-        <button onclick="selectLang('SQL')">SQL</button>
-        <button onclick="showMainMenu()">Назад</button>
-    `;
+function showLanguageMenu() {
+  app.innerHTML = "";
+  Object.keys(LANGUAGES).forEach((lang) => {
+    const btn = document.createElement("button");
+    btn.textContent = lang;
+    btn.onclick = () => chooseLanguage(lang);
+    app.appendChild(btn);
+  });
 }
 
-function selectLang(lang) {
-    content.innerHTML = `
-        <h2>${lang}</h2>
-        <button onclick="startQuiz('${lang}')">Начать тест</button>
-        <button onclick="showMainMenu()">Назад</button>
-    `;
+function chooseLanguage(lang) {
+  user.language = lang;
+  user.quiz_index = 0;
+  showSectionMenu();
 }
 
-function startQuiz(lang) {
-    content.innerHTML = `
-        <h2>Тест по ${lang}</h2>
-        <p>Здесь будет логика тестирования</p>
-        <button onclick="showMainMenu()">В меню</button>
-    `;
+function showSectionMenu() {
+  app.innerHTML = "";
+
+  const sections = [
+    { name: "📘 Теория", action: showTheory },
+    { name: "💻 Практика", action: showPractice },
+    { name: "🧠 Викторина", action: showQuiz },
+    { name: "🔥 Челлендж", action: showChallenge },
+    { name: "📊 Прогресс", action: showProgress },
+  ];
+
+  sections.forEach((sec) => {
+    const btn = document.createElement("button");
+    btn.textContent = sec.name;
+    btn.onclick = sec.action;
+    app.appendChild(btn);
+  });
+}
+
+// Примеры функций
+function showTheory() {
+  app.innerHTML = "<p>Список статей пока заглушка</p>";
+}
+
+function showPractice() {
+  app.innerHTML = "<p>Практические задания пока заглушка</p>";
+}
+
+function showQuiz() {
+  app.innerHTML = "<p>Викторина пока заглушка</p>";
+}
+
+function showChallenge() {
+  app.innerHTML = "<p>Челлендж пока заглушка</p>";
 }
 
 function showProgress() {
-    content.innerHTML = `
-        <h2>Твой прогресс</h2>
-        <p>Здесь будет статистика</p>
-        <button onclick="showMainMenu()">Назад</button>
-    `;
+  app.innerHTML = "<p>Прогресс пользователя пока заглушка</p>";
 }
-
-function closeApp() {
-    Telegram.WebApp.close();
-}
-
-showMainMenu();
