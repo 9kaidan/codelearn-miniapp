@@ -1,17 +1,15 @@
-import { getQuizQuestion } from "./quiz.js"; // заглушка для викторины
-import { DATA } from "./data.js";           // заглушка для данных
+import { getQuizQuestion } from "./quiz.js";
+import { DATA } from "./data.js";
 
 const app = document.getElementById("content");
 
-let user = {
-  language: null,
-};
+let user = { language: null };
 
-// Функция для создания кнопки с нужными стилями
+// Функция для создания кнопки
 function createButton(text, onClick) {
   const btn = document.createElement("button");
   btn.textContent = text;
-  btn.classList.add("button"); // гарантированно применяем CSS
+  btn.classList.add("button"); // применяем CSS
   btn.onclick = onClick;
   return btn;
 }
@@ -42,7 +40,6 @@ function chooseLanguage(lang) {
 // Меню разделов
 function showSectionMenu() {
   app.innerHTML = "";
-
   const sections = [
     { name: "📘 Теория", action: showTheory },
     { name: "💻 Практика", action: showPractice },
@@ -60,7 +57,7 @@ function showSectionMenu() {
   app.appendChild(backBtn);
 }
 
-// Разделы (пока заглушки)
+// Заглушки разделов
 function showTheory() {
   app.innerHTML = `<p>📘 Теория по ${user.language} — пока заглушка</p>`;
   addBackToSection();
@@ -72,7 +69,7 @@ function showPractice() {
 }
 
 function showQuiz() {
-  const q = getQuizQuestion(user.language); // заглушка вопроса
+  const q = getQuizQuestion(user.language);
   app.innerHTML = `<p>🧠 Викторина по ${user.language}</p>
                    <p>${q.question}</p>`;
 
